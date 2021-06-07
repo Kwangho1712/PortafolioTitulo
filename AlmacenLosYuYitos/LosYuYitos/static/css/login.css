@@ -1,0 +1,46 @@
+body{
+  background:url(https://image.freepik.com/vector-gratis/supermercado-interior-estantes-productos-completos_53562-8921.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.titulo{
+    color: rgb(255, 255, 255);
+
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: rgba(52, 189, 70, 0.9);
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+  }
+
+.card-body .form_login{
+    width: 100%;
+}
+
+.requiredField{
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+}
+
+.btn-success {
+    width: 100%;
+    color: #fff;
+    background-color: #cc540e;
+    border-color: #198787;
+}
+
+

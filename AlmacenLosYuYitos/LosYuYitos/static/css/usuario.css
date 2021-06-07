@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    background:url(https://www.cosglobalservices.com/wp-content/uploads/2017/06/fondo-portada-area-cliente.png);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+.card {
+    background-color: rgb(255, 255, 255);
+}
+.card-body {
+    background-color: rgb(255, 255, 255);
+}
+  
+
+
+
+

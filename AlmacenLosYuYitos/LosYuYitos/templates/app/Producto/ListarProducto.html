@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/PRODUCTO.css'%}">
+{% endblock %}
+
+{% block js %}
+
+<script>
+    function eliminarProducto(cod_producto) {
+        Swal.fire({
+            "title": "¿Esta seguro?",
+            "text": "esta accion no se puede deshacer",
+            "icon": "warning",
+            "showCancelButton": true,
+            "cancelButtonText": "CANCELAR",
+            "confirmButtonText": "ELIMINAR",
+            "reverseButtons": true
+        })
+        .then(function(result) {
+            if(result.isConfirmed) {
+                window.location.href = "/eliminarproducto/"+cod_producto+"/"
+            }
+        })
+    }
+</script>
+
+{% endblock %}
+
+{% block contenido %}
+<br><br><br>
+<div class="card">
+    <div class="card-body">
+        <h2>Listado de Productos</h2>
+        <table class="table table-striped table-hover table-responsive-sm">
+            <tr>
+                <th>Cod Producto</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio Compra</th>
+                <th>Precio venta</th>
+                <th>Tipo Producto</th>
+                <th>Familia Producto</th>
+                <th>Stock</th>
+                <th>Stock Critico</th>
+            </tr>
+
+            {% for p in productos %}
+            <tr>
+                <td>{{ p.cod_producto }}</td>    
+                <td>{{ p.nombre }}</td>
+                <td>{{ p.descripcion }}</td>
+                <td>{{ p.precio_compra }}</td>
+                <td>{{ p.precio_venta }}</td>
+                <td>{{ p.tipo_prod_id_tipo_prod }}</td>
+                <td>{{ p.fam_prod_id_fam_prod }}</td>
+                <td>{{ p.stock_actual }}</td>
+                <td>{{ p.stock_critico }}</td>
+                {% if perms.LosYuyitos.change_producto %}
+                <td>
+                    <a href="{% url 'modificar-productos' p.cod_producto %}" class="btn btn-info btn-sm">modificar </a>
+                    <a href="#" onclick="eliminarProducto({{ p.cod_producto }})" class="btn btn-danger btn-sm">ELIMINAR </a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+<br><br>
+
+<div class="col-12 col-md-6 offset-md-3">
+<h2>EDITAR Usuario</h2>
+<form action="" class="" method="post">
+
+
+    {% csrf_token %}
+    <div class="card">  
+        <table>
+            {{ form | crispy }}
+        </table>
+    </div>
+    <input type="submit" value="Editar" id="btnGuardar" class="btn btn-primary">
+    <input type="reset" value="Cancelar" id="btnCancelar" class="btn btn-primary">
+    <a href="{% url 'editar-password' form.username.value %}" class="btn btn-info btn-sm">Cambiar contraseña </a>
+    
+
+</form>
+</div>
+
+{{ mensaje }}
+{% endblock %}

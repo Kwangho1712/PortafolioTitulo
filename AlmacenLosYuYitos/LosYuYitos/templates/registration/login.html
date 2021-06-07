@@ -1,0 +1,42 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso al sistema</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css'%}">
+</head>
+<body>
+    {% load crispy_forms_tags %}
+    <div class="container">
+     <br><br><br>
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card">  
+                    <div class="card-body">
+                        <h2>INGRESA TUS CREDENCIALES</h2>
+                        <hr>
+                        <form action="" method="post">
+
+                            {% csrf_token %}
+                            {{ form | crispy}}
+                            <a href="{% url 'reset_password' %}">Olvido su contraseña?</a>
+
+                            <input type="submit" value="ingresar" class="btn btn-success float-right">
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

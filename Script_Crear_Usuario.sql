@@ -1,0 +1,5 @@
+CREATE USER c##yuyitos identified by yuyitos;
+
+GRANT CONNECT, RESOURCE TO c##yuyitos;
+
+ALTER USER c##yuyitos DEFAULT TABLESPACE USERS QUOTA UNLIMITED ON USERS;
